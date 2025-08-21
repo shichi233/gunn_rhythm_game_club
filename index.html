@@ -61,6 +61,7 @@
     section { padding: 70px 0; }
     h2 { font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 14px; }
     .sub { color: #5e5a55; margin-bottom: 28px; }
+
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .card { background: #fff; border: 1px solid #ebe7e1; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
     .card h3 { margin: 8px 0 6px; font-size: 20px; }
@@ -200,7 +201,8 @@
             <textarea id="notes" name="notes" rows="4" placeholder="e.g., osu!, Taiko, IIDX, DDR..."></textarea>
             <div class="cta" style="margin-top:14px">
               <button class="btn btn-primary" type="submit">Send Interest</button>
-              <a class="btn" style="background:var(--gunn-red); color:#fff" href="mailto:gunn-rhythm-game-club@example.org?subject=Join%20Rhythm%20Game%20Club">Email Us</a>
+              <!-- UPDATED EMAIL -->
+              <a class="btn" style="background:var(--gunn-red); color:#fff" href="mailto:shichi233333@gmail.com?subject=Join%20Rhythm%20Game%20Club">Email Us</a>
             </div>
           </form>
         </div>
@@ -319,11 +321,12 @@
       });
     }
 
+    // UPDATED EMAIL target
     document.getElementById('interest-form').addEventListener('submit', (ev) => {
       ev.preventDefault();
       const f = new FormData(ev.target);
       const body = encodeURIComponent(`Name: ${f.get('name')}\nEmail: ${f.get('email')}\nLevel: ${f.get('level')}\nGames: ${f.get('notes')||''}`);
-      window.location.href = `mailto:gunn-rhythm-game-club@example.org?subject=Interest:%20Rhythm%20Game%20Club&body=${body}`;
+      window.location.href = `mailto:shichi233333@gmail.com?subject=Interest:%20Rhythm%20Game%20Club&body=${body}`;
     });
 
     const links = Array.from(document.querySelectorAll('.menu a'));
