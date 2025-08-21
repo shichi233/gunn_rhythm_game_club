@@ -48,7 +48,7 @@
     .hero { background: var(--gunn-red); color: var(--white); }
     .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; padding: 72px 20px; }
     .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); font-weight: 700; }
-    .hero h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.05; margin: 14px 0 12px; letter-spacing: .2px; }
+    .hero h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.05; margin: 14px 0 12px; }
     .hero p { font-size: clamp(16px, 1.6vw, 18px); opacity: .95; }
     .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
     .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; font-weight: 800; letter-spacing: .3px; border: 2px solid transparent; transition: transform .12s ease, box-shadow .2s ease; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
@@ -61,7 +61,6 @@
     section { padding: 70px 0; }
     h2 { font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 14px; }
     .sub { color: #5e5a55; margin-bottom: 28px; }
-
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .card { background: #fff; border: 1px solid #ebe7e1; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
     .card h3 { margin: 8px 0 6px; font-size: 20px; }
@@ -151,7 +150,7 @@
         </div>
         <div class="card">
           <h3>Meetings</h3>
-          <p><strong>Every Wednesday on campus</strong> (per school policy). Exact dates appear in the Events section. Bring your own device or use our club setups.</p>
+          <p><strong>Every Wednesday at lunch in C-6</strong>. Exact dates appear in the Events section. Bring your own device or use our club setups.</p>
         </div>
         <div class="card">
           <h3>What to expect</h3>
@@ -214,7 +213,7 @@
             <li>Make friends who love music + games.</li>
           </ul>
           <h3 style="margin-top:20px">Room & Time</h3>
-          <p><strong>Room:</strong> TBD • <strong>Time:</strong> after school (see Events)</p>
+          <p><strong>Room:</strong> C-6 • <strong>Time:</strong> Wednesday lunch</p>
         </div>
       </div>
     </div>
@@ -256,11 +255,11 @@
   <script>
     const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
-    // --- Upcoming events (your dates) ---
+    // --- Upcoming events (Wed lunch in C-6) ---
     const EVENTS = [
-      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-08-27T15:45:00", location: "Room TBD", note: "玩音游 / Free play" },
-      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-03T15:45:00", location: "Room TBD", note: "玩音游 / Free play" },
-      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-10T15:45:00", location: "Room TBD", note: "玩音游 / Free play" }
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-08-27T12:00:00", location: "C-6", time: "Lunch", note: "Free play" },
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-03T12:00:00", location: "C-6", time: "Lunch", note: "Free play" },
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-10T12:00:00", location: "C-6", time: "Lunch", note: "Free play" }
     ];
 
     const OFFICERS = [
@@ -277,11 +276,12 @@
         const d = new Date(ev.datetime);
         const item = document.createElement('article');
         item.className = 'event';
+        const timeLabel = ev.time ? ev.time : d.toLocaleString([], {weekday:'short', hour:'numeric', minute:'2-digit'});
         item.innerHTML = `
           <div class="date"><div class="d">${String(d.getDate()).padStart(2,'0')}</div><div class="m">${MONTHS[d.getMonth()]}</div></div>
           <div>
             <h3 style="margin:0 0 4px">${ev.title}</h3>
-            <div class="meta">${d.toLocaleString([], {weekday:'short', hour:'numeric', minute:'2-digit'})} • ${ev.location}</div>
+            <div class="meta">${timeLabel} • ${ev.location}</div>
             ${ev.note ? `<p style="margin:8px 0 0">${ev.note}</p>`: ''}
           </div>`;
         list.appendChild(item);
