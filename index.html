@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rhythm Game Club | Gunn High School</title>
   <meta name="description" content="Official website of the Gunn High School Rhythm Game Club. Join us for rhythm games, tournaments, and community!" />
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23990000'/%3E%3Cg fill='%23fff'%3E%3Crect x='10' y='30' width='30' height='24' rx='8' stroke='%23fff' stroke-width='4' fill='none'/%3E%3Ccircle cx='20' cy='42' r='6'/%3E%3Ccircle cx='30' cy='42' r='6'/%3E%3Cpath d='M47 16v16c0 6-5 9-10 10' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M41 14h4v6h-4zM49 10h4v18h-4z'/%3E%3Ccircle cx='18' cy='24' r='7' stroke='%23fff' stroke-width='4' fill='none'/%3E%3Ctext x='18' y='27' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='9' fill='%23fff'%3EG%3C/text%3E%3C/g%3E%3C/svg%3E" />
+  <!-- Social preview using your logo -->
   <meta property="og:title" content="Gunn HS Rhythm Game Club" />
   <meta property="og:description" content="Tap. Slide. Shine. Join the Gunn Rhythm Game Club." />
-  <meta property="og:image" content="347741755743348_.pic_hd.jpg" />
+  <meta property="og:image" content="./347741755743348_.pic_hd.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" as="image" href="347741755743348_.pic_hd.jpg" />
+  <link rel="preload" as="image" href="./347741755743348_.pic_hd.jpg" />
   <style>
     :root {
-      --gunn-red: #9b0d13; /* deep cardinal */
+      --gunn-red: #9b0d13;
       --gunn-red-dark: #6f0a0f;
       --paper: #f6f3ef;
       --ink: #0f0f12;
@@ -25,21 +27,16 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--ink); background: var(--paper);
-      line-height: 1.5;
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink); background: var(--paper); line-height: 1.5;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
     /* Nav */
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(1.2) blur(6px);
-      background: rgba(246,243,239,.75);
-      border-bottom: 1px solid #e9e4dc;
-    }
+    .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(1.2) blur(6px); background: rgba(246,243,239,.75); border-bottom: 1px solid #e9e4dc; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .3px; }
     .brand img.logo { height: 42px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
@@ -97,7 +94,6 @@
     .foot-links a { opacity: .85; margin-left: 14px; }
     .foot-links a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero .container, .join { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
@@ -111,7 +107,7 @@
   <nav class="nav" aria-label="Primary">
     <div class="container nav-inner">
       <a class="brand" href="#home" aria-label="Rhythm Game Club home">
-        <img class="logo" src="347741755743348_.pic_hd.jpg" alt="Rhythm Game Club logo" />
+        <img class="logo" src="./347741755743348_.pic_hd.jpg" alt="Rhythm Game Club logo" />
         <span>Rhythm Game Club</span>
       </a>
       <div class="menu" role="navigation">
@@ -130,7 +126,7 @@
       <div>
         <span class="badge">Gunn High School • Titans</span>
         <h1>Tap. Slide. Shine.<br/>Join the Gunn Rhythm Game Club</h1>
-        <p>We play and compete in rhythm games like <strong>Osu!</strong>, <strong>beatmania IIDX</strong>, <strong>Project SEKAI</strong>, <strong>Phigros</strong>, and more. Beginners are welcome—learn charts, improve timing, and meet friends who love music + games.</p>
+        <p>We play and compete in rhythm games like Osu!, beatmania IIDX, Project SEKAI, Phigros, and more. Beginners are welcome—learn charts, improve timing, and meet friends who love music + games.</p>
         <div class="cta">
           <a class="btn btn-primary" href="#join">Join the Club</a>
           <a class="btn btn-outline" href="#events">See Upcoming Events</a>
@@ -151,7 +147,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>What we play</h3>
-          <p>osu! • Project SEKAI • <strong>Phigros</strong> • Taiko • Cytus/DEEMO • Muse Dash • DDR/ITG • beatmania IIDX • Sound Voltex • maimai — and more by request. <strong>All are welcome.</strong></p>
+          <p>osu! • Project SEKAI • Phigros • Taiko • Cytus/DEEMO • Muse Dash • DDR/ITG • beatmania IIDX • Sound Voltex • maimai — and more by request. <strong>All are welcome.</strong></p>
         </div>
         <div class="card">
           <h3>Meetings</h3>
@@ -248,9 +244,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div>
-        © <span id="year"></span> Gunn High School Rhythm Game Club
-      </div>
+      <div>© <span id="year"></span> Gunn High School Rhythm Game Club</div>
       <div class="foot-links">
         <a href="#home">Top</a>
         <a href="#join">Join</a>
@@ -260,14 +254,13 @@
   </footer>
 
   <script>
-    // --- Helper: format month abbrev ---
     const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
-    // --- Sample events: edit these to publish real meetings ---
+    // --- Upcoming events (your dates) ---
     const EVENTS = [
-      { title: "Kickoff + Free Play", datetime: "2025-09-05T15:45:00", location: "Room TBD", note: "Bring your device; snacks!" },
-      { title: "Accuracy Clinic (osu!/Taiko)", datetime: "2025-09-19T15:45:00", location: "Room TBD", note: "Reading & timing drills" },
-      { title: "Bracket Night", datetime: "2025-10-03T15:45:00", location: "Room TBD", note: "Prizes for top 3" }
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-08-27T15:45:00", location: "Room TBD", note: "玩音游 / Free play" },
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-03T15:45:00", location: "Room TBD", note: "玩音游 / Free play" },
+      { title: "Free Play + Meetup (Rhythm Games)", datetime: "2025-09-10T15:45:00", location: "Room TBD", note: "玩音游 / Free play" }
     ];
 
     const OFFICERS = [
@@ -276,7 +269,6 @@
       { name: "James Dong", role: "Secretary", initials: "TL" }
     ];
 
-    // Render events list
     function renderEvents() {
       const list = document.getElementById('events-list');
       list.innerHTML = '';
@@ -296,7 +288,6 @@
       });
     }
 
-    // Render officers grid
     function renderOfficers() {
       const grid = document.getElementById('officer-grid');
       grid.innerHTML = '';
@@ -313,7 +304,6 @@
       });
     }
 
-    // This Week mini-list
     function renderThisWeek() {
       const ul = document.getElementById('this-week');
       if (!ul) return;
@@ -329,7 +319,6 @@
       });
     }
 
-    // interest form (creates a mailto body)
     document.getElementById('interest-form').addEventListener('submit', (ev) => {
       ev.preventDefault();
       const f = new FormData(ev.target);
@@ -337,7 +326,6 @@
       window.location.href = `mailto:gunn-rhythm-game-club@example.org?subject=Interest:%20Rhythm%20Game%20Club&body=${body}`;
     });
 
-    // Active link highlight
     const links = Array.from(document.querySelectorAll('.menu a'));
     const obs = new IntersectionObserver(entries => {
       for (const e of entries) {
@@ -348,7 +336,6 @@
     }, { rootMargin: '-30% 0px -65% 0px' });
     ['about','events','officers','join','faq'].forEach(id => obs.observe(document.getElementById(id)));
 
-    // boot
     renderEvents();
     renderOfficers();
     renderThisWeek();
