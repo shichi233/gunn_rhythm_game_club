@@ -189,20 +189,27 @@
           <form id="interest-form">
             <label for="name">Name</label>
             <input id="name" name="name" required placeholder="Your name" />
+
+            <label for="studentId">Student ID</label>
+            <input id="studentId" name="studentId" required pattern="\\d{5,}" inputmode="numeric" placeholder="e.g., 123456" />
+
             <label for="email">Email</label>
             <input id="email" name="email" type="email" required placeholder="you@pausd.us" />
+
             <label for="level">Experience level</label>
             <select id="level" name="level">
               <option>Beginner</option>
               <option>Intermediate</option>
               <option>Advanced</option>
             </select>
+
             <label for="notes">Games you play (optional)</label>
             <textarea id="notes" name="notes" rows="4" placeholder="e.g., osu!, Taiko, IIDX, DDR..."></textarea>
+
             <div class="cta" style="margin-top:14px">
               <button class="btn btn-primary" type="submit">Send Interest</button>
-              <!-- UPDATED EMAIL -->
-              <a class="btn" style="background:var(--gunn-red); color:#fff" href="mailto:shichi233333@gmail.com?subject=Join%20Rhythm%20Game%20Club">Email Us</a>
+              <!-- Email Us now uses the same auto-filled mailto flow -->
+              <button class="btn" type="button" id="email-us-btn" style="background:var(--gunn-red); color:#fff">Email Us</button>
             </div>
           </form>
         </div>
@@ -321,14 +328,42 @@
       });
     }
 
-    // UPDATED EMAIL target
+    // Compose and open a prefilled email to club inbox
+    function openPrefilledEmail(formData) {
+      const name = formData.get('name')?.trim() || '';
+      const studentId = formData.get('studentId')?.trim() || '';
+      const email = formData.get('email')?.trim() || '';
+      const level = formData.get('level') || '';
+      const notes = formData.get('notes')?.trim() || '';
+
+      const subject = `Interest: Rhythm Game Club - ${name}${studentId ? ` (${studentId})` : ''}`;
+      const body = [
+        `Name: ${name}`,
+        `Student ID: ${studentId}`,
+        `Email: ${email}`,
+        `Level: ${level}`,
+        `Games: ${notes}`
+      ].join('\n');
+
+      const mailto = `mailto:shichi233333@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    }
+
+    // Submit handler (opens email client with filled content)
     document.getElementById('interest-form').addEventListener('submit', (ev) => {
       ev.preventDefault();
       const f = new FormData(ev.target);
-      const body = encodeURIComponent(`Name: ${f.get('name')}\nEmail: ${f.get('email')}\nLevel: ${f.get('level')}\nGames: ${f.get('notes')||''}`);
-      window.location.href = `mailto:shichi233333@gmail.com?subject=Interest:%20Rhythm%20Game%20Club&body=${body}`;
+      openPrefilledEmail(f);
     });
 
+    // "Email Us" button uses the same prefill based on current form values
+    document.getElementById('email-us-btn').addEventListener('click', () => {
+      const form = document.getElementById('interest-form');
+      const f = new FormData(form);
+      openPrefilledEmail(f);
+    });
+
+    // Active link highlight
     const links = Array.from(document.querySelectorAll('.menu a'));
     const obs = new IntersectionObserver(entries => {
       for (const e of entries) {
@@ -339,6 +374,7 @@
     }, { rootMargin: '-30% 0px -65% 0px' });
     ['about','events','officers','join','faq'].forEach(id => obs.observe(document.getElementById(id)));
 
+    // boot
     renderEvents();
     renderOfficers();
     renderThisWeek();
